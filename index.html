@@ -6,153 +6,183 @@
 <title>For Funmilayo ❤️</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #ff99cc, #ff66a3, #ffccff);
-        color: white;
-        text-align: center;
-        overflow-x: hidden;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff99cc, #ff66a3, #ffccff);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
 
-    .container {
-        padding: 40px 20px;
-    }
+.container {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
 
-    h1 {
-        font-size: 40px;
-        font-weight: bold;
-        margin-top: 30px;
-        animation: fadeIn 2s ease-in-out;
-    }
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
 
-    p {
-        font-size: 20px;
-        line-height: 1.8;
-        max-width: 700px;
-        margin: auto;
-        animation: slideIn 2.5s ease-in-out;
-    }
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: fadeIn 3s ease-in-out;
+}
 
-    /* photos */
-    .photos {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        flex-wrap: wrap;
-    }
+.surprise-btn {
+    margin-top: 25px;
+    padding: 14px 24px;
+    font-size: 18px;
+    background: white;
+    color: #ff3385;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    animation: pulse 1.5s infinite;
+}
 
-    .photo-box {
-        background: rgba(255,255,255,0.2);
-        padding: 15px;
-        border-radius: 20px;
-        backdrop-filter: blur(4px);
-        width: 220px;
-        animation: fadeIn 3s ease-in-out;
-    }
+.surprise-btn:hover {
+    background: #ffe6f2;
+    transform: scale(1.05);
+}
 
-    .photo-box img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 18px;
-    }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
-    .photo-name {
-        margin-top: 10px;
-        font-size: 18px;
-        font-weight: bold;
-    }
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 9999;
+}
 
-    /* heart animation */
-    .heart {
-        position: fixed;
-        bottom: -20px;
-        color: rgba(255,255,255,0.8);
-        font-size: 22px;
-        animation: floatUp 6s linear infinite;
-    }
+.popup-content {
+    background: white;
+    color: #ff3385;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    text-align: center;
+    animation: popIn 0.4s ease;
+    overflow-y: auto;
+    max-height: 80vh;
+}
 
-    @keyframes floatUp {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
-    }
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    color: white;
+    font-size: 16px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
 
-    /* Buttons */
-    .surprise-btn {
-        margin-top: 30px;
-        padding: 15px 25px;
-        font-size: 20px;
-        background: white;
-        color: #ff3385;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
-    }
+/* Floating hearts */
+@keyframes floatHeart { 
+    0% { transform: translateY(0) rotate(0deg); opacity:1; } 
+    100% { transform: translateY(-700px) rotate(360deg); opacity:0; } 
+}
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    z-index: 1;
+}
+.heart::before, .heart::after {
+    content:"";
+    position:absolute;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:red;
+}
+.heart::before { top:-10px; left:0; }
+.heart::after { top:0; left:-10px; }
 
-    .surprise-btn:hover {
-        background: #ffe6f2;
-        transform: scale(1.05);
-    }
+/* Pictures section */
+.pics-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    position: relative;
+    gap: 20px;
+}
+.pics-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
 
-    /* popup */
-    .popup {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.7);
-        backdrop-filter: blur(3px);
-        justify-content: center;
-        align-items: center;
-    }
+/* Heart between pictures */
+.love-heart {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: red;
+    z-index: 2;
+    animation: pulseHeart 1.2s infinite;
+}
+.love-heart::before, .love-heart::after {
+    content:"";
+    position:absolute;
+    width:40px; height:40px;
+    border-radius:50%;
+    background:red;
+}
+.love-heart::before { top:-20px; left:0; }
+.love-heart::after { top:0; left:-20px; }
 
-    .popup-content {
-        background: white;
-        color: #ff3385;
-        padding: 30px;
-        width: 85%;
-        max-width: 450px;
-        border-radius: 20px;
-        text-align: center;
-        animation: popIn 0.4s ease;
-    }
+@keyframes pulseHeart {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(45deg);}
+    50% { transform: translate(-50%, -50%) scale(1.2) rotate(45deg);}
+    100% { transform: translate(-50%, -50%) scale(1) rotate(45deg);}
+}
 
-    footer {
-        margin-top: 40px;
-        padding: 20px;
-        color: white;
-        font-size: 18px;
-        opacity: 0.9;
-    }
-
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-
-    @keyframes slideIn {
-        from {opacity: 0; transform: translateY(30px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes popIn {
-        from {transform: scale(0.6); opacity: 0;}
-        to {transform: scale(1); opacity: 1;}
-    }
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    h1 { font-size: 26px; margin-top: 15px; }
+    p { font-size: 16px; }
+    .surprise-btn { font-size: 16px; padding: 12px 22px; }
+    .popup-content { max-width: 95%; padding: 20px; font-size: 15px; }
+    footer { font-size: 14px; }
+    .pics-container img { width: 90px; height: 90px; }
+    .love-heart { width: 30px; height: 30px; }
+    .love-heart::before, .love-heart::after { width: 30px; height: 30px; }
+}
 </style>
 </head>
 
 <body>
-
-<!-- Background Music -->
-<audio autoplay loop>
-    <source src="love.mp3" type="audio/mp3">
-</audio>
 
 <div class="container">
     <h1>For My Beautiful Funmilayo ❤️</h1>
@@ -173,23 +203,16 @@
         tap the button below for a little surprise. 🌸
     </p>
 
-    <!-- pictures -->
-    <div class="photos">
-        <div class="photo-box">
-            <img src="funmilayo.jpg" alt="Funmilayo">
-            <div class="photo-name">Funmilayo ❤️</div>
-        </div>
-
-        <div class="photo-box">
-            <img src="samuel.jpg" alt="Samuel">
-            <div class="photo-name">Samuel ❤️</div>
-        </div>
+    <!-- Pictures section -->
+    <div class="pics-container">
+        <img src="samuel.jpg" alt="Samuel">
+        <div class="love-heart"></div>
+        <img src="funmilayo.jpg" alt="Funmilayo">
     </div>
 
     <button class="surprise-btn" onclick="showPopup()">Tap for Your Surprise 💕</button>
 </div>
 
-<!-- popup -->
 <div class="popup" id="popup">
     <div class="popup-content">
         <h3>I Love You, My Corazooonnnn ❤️</h3>
@@ -215,28 +238,27 @@
     From Samuel — your lover, always 💕
 </footer>
 
+<!-- Background music -->
+<audio id="loveSong" src="love.mp3" autoplay loop></audio>
+
 <script>
-function showPopup() {
-    document.getElementById("popup").style.display = "flex";
-}
+// Show/hide popup
+function showPopup() { document.getElementById("popup").style.display = "flex"; }
+function closePopup() { document.getElementById("popup").style.display = "none"; }
 
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-/* floating hearts */
-setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "%";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.innerHTML = "❤️";
+// Floating hearts background
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.background = `hsl(${Math.random()*360}, 100%, 70%)`;
+    heart.style.width = 15 + Math.random()*10 + 'px';
+    heart.style.height = heart.style.width;
+    heart.style.animation = `floatHeart ${4 + Math.random()*3}s linear forwards`;
     document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}, 500);
+    setTimeout(()=>heart.remove(),7000);
+}
+setInterval(createHeart, 400);
 </script>
 
 </body>
