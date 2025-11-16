@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Funmilayo ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff99cc, #ff66a3, #ffccff);
+        color: white;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+        font-weight: bold;
+        margin-top: 30px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: auto;
+        animation: slideIn 2.5s ease-in-out;
+    }
+
+    /* photos */
+    .photos {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
+
+    .photo-box {
+        background: rgba(255,255,255,0.2);
+        padding: 15px;
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+        width: 220px;
+        animation: fadeIn 3s ease-in-out;
+    }
+
+    .photo-box img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 18px;
+    }
+
+    .photo-name {
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    /* heart animation */
+    .heart {
+        position: fixed;
+        bottom: -20px;
+        color: rgba(255,255,255,0.8);
+        font-size: 22px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Buttons */
+    .surprise-btn {
+        margin-top: 30px;
+        padding: 15px 25px;
+        font-size: 20px;
+        background: white;
+        color: #ff3385;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .surprise-btn:hover {
+        background: #ffe6f2;
+        transform: scale(1.05);
+    }
+
+    /* popup */
+    .popup {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(3px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background: white;
+        color: #ff3385;
+        padding: 30px;
+        width: 85%;
+        max-width: 450px;
+        border-radius: 20px;
+        text-align: center;
+        animation: popIn 0.4s ease;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+        color: white;
+        font-size: 18px;
+        opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+        from {opacity: 0; transform: translateY(30px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes popIn {
+        from {transform: scale(0.6); opacity: 0;}
+        to {transform: scale(1); opacity: 1;}
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="love.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>For My Beautiful Funmilayo ❤️</h1>
+
+    <p>
+        I made this little corner of the internet just for you, Funmilayo.  
+        Something soft, warm and sweet — just like your heart.  
+        <br><br>
+        And guess what?  
+        <b>You can visit this page anytime. Tomorrow… next year…  
+        even 10 years from now. It will always be here for you forever.</b>
+        <br><br>
+        And yes…  
+        <b>It's Samuel — the man who loves you silly —  
+        that made this for you.</b>
+        <br><br>
+        When you're done reading…  
+        tap the button below for a little surprise. 🌸
+    </p>
+
+    <!-- pictures -->
+    <div class="photos">
+        <div class="photo-box">
+            <img src="funmilayo.jpg" alt="Funmilayo">
+            <div class="photo-name">Funmilayo ❤️</div>
+        </div>
+
+        <div class="photo-box">
+            <img src="samuel.jpg" alt="Samuel">
+            <div class="photo-name">Samuel ❤️</div>
+        </div>
+    </div>
+
+    <button class="surprise-btn" onclick="showPopup()">Tap for Your Surprise 💕</button>
+</div>
+
+<!-- popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h3>I Love You, My Corazooonnnn ❤️</h3>
+        <p>
+            It’s me, Samuel.  
+            The one who can’t stop thinking about you.  
+            The one whose heart beats fast when your name pops up.  
+            <br><br>
+            <b>You make my heart dance.  
+            You make my days brighter.  
+            You make my world calm.</b>
+            <br><br>
+            You’re the one girl who turns ordinary moments into magic…  
+            and honestly…  
+            <b>I blush when I think about you too.</b>
+        </p>
+
+        <button class="surprise-btn" onclick="closePopup()">Close 💗</button>
+    </div>
+</div>
+
+<footer>
+    From Samuel — your lover, always 💕
+</footer>
+
+<script>
+function showPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+/* floating hearts */
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
